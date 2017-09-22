@@ -19,11 +19,11 @@ $for = mysqli_num_rows($result);
 if ($for > 0) {
 
 
-	for ($i=0; $i <$for ; $i++) { 
+	for ($i=0; $i <$for ; ++$i) { 
 			$row = mysqli_fetch_assoc($result);
 		
 	echo"
-	<b>".$row['autorius']."</b> ".$row['zinute']."<i>[".date("Y-m-d H:i:s", $row['data'])."]</i><hr>";
+	<b>".$row['autorius'].":</b> ".$row['zinute']."<br><i>[".date("Y-m-d H:i:s", $row['data'])."]</i><hr>";
 	}
 } else {
 	echo "Žinučių nėra.<hr>";
@@ -32,7 +32,7 @@ if ($for > 0) {
 	
 		
 	    echo "
-	<form action='siusti.php' method='POST'>
+	<form action='siusti.php' method='post'>
 		Vardas: <input type='text' name='vardas' /><br>
 		Zinute: <input type='text' name='zinute' /><br><br>
 
